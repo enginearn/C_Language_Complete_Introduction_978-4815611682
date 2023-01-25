@@ -33,7 +33,21 @@ void g(int b)
 void h(int array[])
 {
     printf("func h: %p\n", array);
-    printf("func h: %lu\n", sizeof array);
+    printf("func h: %lu\n", sizeof array); // 8
+}
+
+double average(int a[], int n)
+{
+    int total = 0;
+    for (int i = 0; i < n; i++) total += a[i];
+    return (double) total / n;
+}
+
+double averageWithNull(int a[])
+{
+    int total = 0, i;
+    for (i = 0; a[i] >= 0; i++) total += a[i];
+    return (double) total / i;
 }
 
 int main(void)
@@ -59,8 +73,14 @@ int main(void)
 
     int array[10];
     printf("main array: %p\n", array);
-    printf("main array: %lu\n", sizeof array);
+    printf("main array: %lu\n", sizeof array); // 40
     h(array);
+
+    int score[] = {84, 93, 100, 75, 64};
+    printf("%g\n", average(score, sizeof score / sizeof score[0]));
+
+    int scoreWithNull[] = {83, 33, 42, 999, 246, -1};
+    printf("%g\n", averageWithNull(scoreWithNull));
 }
 
 int sub(int x, int y) { return x - y; }
