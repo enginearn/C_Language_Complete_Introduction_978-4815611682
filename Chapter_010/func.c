@@ -36,6 +36,16 @@ void h(int array[])
     printf("func h: %lu\n", sizeof array); // 8
 }
 
+void i(int x)
+{
+    x++;
+}
+
+void j(int y[])
+{
+    y[0]++;
+}
+
 double average(int a[], int n)
 {
     int total = 0;
@@ -44,6 +54,13 @@ double average(int a[], int n)
 }
 
 double averageWithNull(int a[])
+{
+    int total = 0, i;
+    for (i = 0; a[i] >= 0; i++) total += a[i];
+    return (double) total / i;
+}
+
+double arrayWithCompoundLiteral(int a[])
 {
     int total = 0, i;
     for (i = 0; a[i] >= 0; i++) total += a[i];
@@ -81,6 +98,22 @@ int main(void)
 
     int scoreWithNull[] = {83, 33, 42, 999, 246, -1};
     printf("%g\n", averageWithNull(scoreWithNull));
+
+    // error: taking address of temporary array
+    // printf("%g\n", arrayWithCompoundLiteral((int[]) {83, 33, 42, 99, 246, -1}));
+
+    int x = 0;
+    printf("%d\n", x);
+
+    i(x);
+    printf("%d\n", x);
+
+    int y[] = {0};
+    printf("%d\n", y[0]);
+
+    j(y);
+    printf("%d\n", y[0]);
+
 }
 
 int sub(int x, int y) { return x - y; }
