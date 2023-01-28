@@ -81,6 +81,28 @@ void copy(char to[], char from[])
     to[i] = '\0';
 }
 
+void k(void)
+{
+    int b = 456;
+    printf("func k: %d\n", b);
+}
+
+int d = 123;
+
+void l(void)
+{
+    printf("func l: %d\n", d);
+
+    int d = 456;
+    printf("func l: %d\n", d);
+}
+
+int m(void)
+{
+    static int count;
+    printf("func m: %d\n", ++count);
+}
+
 int main(void)
 {
     printf("add: %d\n", add(1, 2));
@@ -135,6 +157,18 @@ int main(void)
     copy(t, s);
     printf("copy: %s\n", t);
 
+    int b = 123;
+    printf("%d\n", b);
+    k();
+    printf("%d\n", b);
+
+    printf("%d\n", d);
+    l();
+    printf("%d\n", d);
+
+    m();
+    m();
+    m();
 }
 
 int sub(int x, int y) { return x - y; }
