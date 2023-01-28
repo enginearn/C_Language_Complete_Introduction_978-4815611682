@@ -67,6 +67,20 @@ double arrayWithCompoundLiteral(int a[])
     return (double) total / i;
 }
 
+int len(char s[])
+{
+    int i;
+    for (i = 0; s[i]; i++);
+    return i;
+}
+
+void copy(char to[], char from[])
+{
+    int i;
+    for (i = 0; from[i]; i++) to[i] = from[i];
+    to[i] = '\0';
+}
+
 int main(void)
 {
     printf("add: %d\n", add(1, 2));
@@ -113,6 +127,13 @@ int main(void)
 
     j(y);
     printf("%d\n", y[0]);
+
+    printf("len: %d\n", len("Hello, World!"));
+
+    char s[] = "Hello, World!";
+    char t[100];
+    copy(t, s);
+    printf("copy: %s\n", t);
 
 }
 
