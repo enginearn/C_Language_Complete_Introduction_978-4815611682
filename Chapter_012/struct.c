@@ -6,7 +6,11 @@ struct fruit {
     float price;
 };
 
-typedef struct fruit fruit_t;
+typedef struct {
+    char name[20];
+    int quantity;
+    float price;
+} fruit_t;
 
 int main(void)
 {
@@ -25,4 +29,8 @@ int main(void)
     printf("apple2: %s, %d, $%.2f\n", apple2.name, apple2.quantity, apple2.price);
     printf("orange2: %s, %d, $%.2f\n", orange2.name, orange2.quantity, orange2.price);
     printf("banana2: %s, %d, $%.2f\n", banana2.name, banana2.quantity, banana2.price);
+
+    fruit_t apple3 = {"apple", 10, 1.5};
+    fruit_t orange3 = {"orange", 20, 2.5};
+    fruit_t banana3 = {"banana", 30, 3.5};
 }
