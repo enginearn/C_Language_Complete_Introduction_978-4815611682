@@ -12,6 +12,13 @@ typedef struct {
     float price;
 } fruit_t;
 
+typedef struct {
+    char name[20];
+    int quantity;
+    float price;
+    float weight;
+} FRUIT;
+
 int main(void)
 {
     struct fruit apple = {"apple", 10, 1.5};
@@ -33,4 +40,13 @@ int main(void)
     fruit_t apple3 = {"apple", 10, 1.5};
     fruit_t orange3 = {"orange", 20, 2.5};
     fruit_t banana3 = {"banana", 30, 3.5};
+
+    FRUIT a = {"apple", 10, 1.5, 0.5};
+    FRUIT b = a;
+    b.price /= 2;
+    b.weight *= 0.7;
+    b.quantity = 20;
+
+    printf("a: %s, %d, $%.2f, %.2fkg\n", a.name, a.quantity, a.price, a.weight);
+    printf("b: %s, %d, $%.2f, %.2fkg\n", b.name, b.quantity, b.price, b.weight);
 }
