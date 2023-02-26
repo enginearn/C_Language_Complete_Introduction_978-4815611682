@@ -19,6 +19,18 @@ typedef struct {
     float weight;
 } FRUIT;
 
+typedef struct {
+    char name[20];
+    int quantity;
+    float price;
+    float weight;
+} fruit_t_with_f;
+
+void print_fruit(fruit_t_with_f f)
+{
+    printf("%s, %d, $%.2f, $%.2f\n", f.name, f.quantity, f.price, f.weight);
+}
+
 int main(void)
 {
     struct fruit apple = {"apple", 10, 1.5};
@@ -49,4 +61,7 @@ int main(void)
 
     printf("a: %s, %d, $%.2f, %.2fkg\n", a.name, a.quantity, a.price, a.weight);
     printf("b: %s, %d, $%.2f, %.2fkg\n", b.name, b.quantity, b.price, b.weight);
+
+    fruit_t_with_f c = {"apple", 10, 1.5, 0.5};
+    print_fruit(c);
 }
