@@ -64,4 +64,6 @@ int main(void)
 
     fruit_t_with_f c = {"apple", 10, 1.5, 0.5};
     print_fruit(c);
+
+    print_fruit((fruit_t_with_f){"apple", 10, 1.5, 0.5});
 }
