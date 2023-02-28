@@ -19,6 +19,20 @@ typedef struct {
     float weight;
 } FRUIT;
 
+FRUIT input(void)
+{
+    FRUIT f;
+    printf("Enter name: ");
+    scanf("%s", f.name);
+    printf("Enter quantity: ");
+    scanf("%d", &f.quantity);
+    printf("Enter price: ");
+    scanf("%f", &f.price);
+    printf("Enter weight: ");
+    scanf("%f", &f.weight);
+    return f;
+}
+
 typedef struct {
     char name[20];
     int quantity;
@@ -27,6 +41,11 @@ typedef struct {
 } fruit_t_with_f;
 
 void print_fruit(fruit_t_with_f f)
+{
+    printf("%s, %d, $%.2f, $%.2f\n", f.name, f.quantity, f.price, f.weight);
+}
+
+void print(FRUIT f)
 {
     printf("%s, %d, $%.2f, $%.2f\n", f.name, f.quantity, f.price, f.weight);
 }
@@ -66,4 +85,6 @@ int main(void)
     print_fruit(c);
 
     print_fruit((fruit_t_with_f){"apple", 10, 1.5, 0.5});
+
+    print(input());
 }
