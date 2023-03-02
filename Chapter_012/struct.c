@@ -87,4 +87,18 @@ int main(void)
     print_fruit((fruit_t_with_f){"apple", 10, 1.5, 0.5});
 
     print(input());
+
+    FRUIT fruit[] = {
+        {"apple", 10, 1.5, 0.5},
+        {"orange", 20, 2.5, 0.6},
+        {"banana", 30, 3.5, 0.7},
+    };
+
+    int n = sizeof fruit / sizeof fruit[0];
+
+    puts("Fruit  Quantity  Price  Weight");
+    for (int i = 0; i < n; i++) {
+        printf("%-6s %5d  %6.1f %6.1f\n", fruit[i].name, fruit[i].quantity, fruit[i].price, fruit[i].weight);
+    }
+
 }
