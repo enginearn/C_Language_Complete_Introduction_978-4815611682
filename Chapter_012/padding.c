@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdalign.h>
 
 typedef struct {
     char c;
