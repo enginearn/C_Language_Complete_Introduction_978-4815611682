@@ -5,12 +5,16 @@ typedef struct {
     char c;
     short s;
     int i;
+
+    alignas(8) int i2;
 } A;
 
 typedef struct {
     char c;
     int i;
     short s;
+
+    alignas(8) int i2;
 } B;
 
 int main(void)
