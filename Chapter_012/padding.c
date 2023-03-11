@@ -45,4 +45,10 @@ int main(void)
 
     printf("A: %lu\n", alignof(A));
     printf("B: %lu\n", alignof(B));
+    puts("");
+
+    printf("size A: %lu\n", sizeof(A));
+    printf("align A: %lu\n", alignof(A));
+    printf("size B: %lu\n", sizeof(B));
+    printf("align B: %lu\n", alignof(B));
 }
